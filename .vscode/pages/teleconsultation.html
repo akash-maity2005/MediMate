@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teleconsultation | MediMate</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/teleconsultation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation (same as dashboard) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">MediMate</div>
+                <div class="user-profile">
+                    <img src="../images/user-avatar.jpg" alt="User Avatar" class="avatar">
+                    <span class="user-name">John Doe</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="assessment.html">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>Health Assessment</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mental-health.html">
+                            <i class="fas fa-brain"></i>
+                            <span>Mental Health</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wallet.html">
+                            <i class="fas fa-wallet"></i>
+                            <span>Blockchain Health</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="recommendations.html">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Recommendations</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="teleconsultation.html">
+                            <i class="fas fa-video"></i>
+                            <span>Teleconsultation</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="emergency.html">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Emergency Protocol</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="appointments.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Appointments</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="settings.html" class="settings-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Teleconsultation</h1>
+                <div class="header-actions">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="wallet-balance">
+                        <span>350 HEAL</span>
+                        <i class="fas fa-coins"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="teleconsultation-container">
+                <div class="consultation-tabs">
+                    <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+                    <button class="tab-btn" data-tab="past">Past Consultations</button>
+                    <button class="tab-btn" data-tab="prescriptions">E-Prescriptions</button>
+                </div>
+                
+                <div class="tab-content active" id="upcoming-tab">
+                    <div class="consultation-card">
+                        <div class="consultation-header">
+                            <div class="doctor-info">
+                                <img src="../images/doctor1.jpg" alt="Dr. Sarah Johnson" class="doctor-avatar">
+                                <div>
+                                    <h3>Dr. Sarah Johnson</h3>
+                                    <p>Cardiologist</p>
+                                    <div class="consultation-time">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Tomorrow, May 15, 2025</span>
+                                    </div>
+                                    <div class="consultation-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>10:00 AM - 10:30 AM (30 mins)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="consultation-status upcoming">
+                                <span>Upcoming</span>
+                            </div>
+                        </div>
+                        <div class="consultation-actions">
+                            <button class="btn btn-outline reschedule-btn">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Reschedule</span>
+                            </button>
+                            <button class="btn btn-primary join-btn">
+                                <i class="fas fa-video"></i>
+                                <span>Join Call</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="consultation-card">
+                        <div class="consultation-header">
+                            <div class="doctor-info">
+                                <img src="../images/doctor2.jpg" alt="Dr. Michael Chen" class="doctor-avatar">
+                                <div>
+                                    <h3>Dr. Michael Chen</h3>
+                                    <p>Neurologist</p>
+                                    <div class="consultation-time">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>May 20, 2025</span>
+                                    </div>
+                                    <div class="consultation-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>2:30 PM - 3:00 PM (30 mins)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="consultation-status upcoming">
+                                <span>Upcoming</span>
+                            </div>
+                        </div>
+                        <div class="consultation-actions">
+                            <button class="btn btn-outline reschedule-btn">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Reschedule</span>
+                            </button>
+                            <button class="btn btn-primary join-btn">
+                                <i class="fas fa-video"></i>
+                                <span>Join Call</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary new-consultation-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>Book New Consultation</span>
+                    </button>
+                </div>
+                
+                <div class="tab-content" id="past-tab">
+                    <div class="consultation-card">
+                        <div class="consultation-header">
+                            <div class="doctor-info">
+                                <img src="../images/doctor3.jpg" alt="Dr. Emily Rodriguez" class="doctor-avatar">
+                                <div>
+                                    <h3>Dr. Emily Rodriguez</h3>
+                                    <p>General Practitioner</p>
+                                    <div class="consultation-time">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>April 28, 2025</span>
+                                    </div>
+                                    <div class="consultation-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>11:15 AM - 11:45 AM (30 mins)</span>
+                                    </div>
+                                    <div class="consultation-method">
+                                        <i class="fas fa-phone-alt"></i>
+                                        <span>Audio Call</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="consultation-status completed">
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                        <div class="consultation-actions">
+                            <button class="btn btn-outline view-summary-btn">
+                                <i class="fas fa-file-alt"></i>
+                                <span>View Summary</span>
+                            </button>
+                            <button class="btn btn-primary followup-btn">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Book Follow-up</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="consultation-card">
+                        <div class="consultation-header">
+                            <div class="doctor-info">
+                                <img src="../images/doctor4.jpg" alt="Dr. James Wilson" class="doctor-avatar">
+                                <div>
+                                    <h3>Dr. James Wilson</h3>
+                                    <p>Pulmonologist</p>
+                                    <div class="consultation-time">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>April 15, 2025</span>
+                                    </div>
+                                    <div class="consultation-time">
+                                        <i class="fas fa-clock"></i>
+                                        <span>3:45 PM - 4:15 PM (30 mins)</span>
+                                    </div>
+                                    <div class="consultation-method">
+                                        <i class="fas fa-video"></i>
+                                        <span>Video Call</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="consultation-status completed">
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                        <div class="consultation-actions">
+                            <button class="btn btn-outline view-summary-btn">
+                                <i class="fas fa-file-alt"></i>
+                                <span>View Summary</span>
+                            </button>
+                            <button class="btn btn-primary followup-btn">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Book Follow-up</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="prescriptions-tab">
+                    <div class="prescription-card">
+                        <div class="prescription-header">
+                            <h3>Prescription #12345</h3>
+                            <div class="prescription-status active">
+                                <span>Active</span>
+                            </div>
+                        </div>
+                        <div class="prescription-info">
+                            <div class="prescription-meta">
+                                <p><strong>Prescribed by:</strong> Dr. Emily Rodriguez</p>
+                                <p><strong>Date:</strong> April 28, 2025</p>
+                            </div>
+                            
+                            <div class="medication-list">
+                                <div class="medication-item">
+                                    <div class="medication-name">
+                                        <h4>Amoxicillin 500mg</h4>
+                                        <span class="medication-type">Antibiotic</span>
+                                    </div>
+                                    <div class="medication-details">
+                                        <p><strong>Dosage:</strong> Take 1 capsule by mouth 3 times daily for 10 days</p>
+                                        <p><strong>Refills:</strong> 0 remaining</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="medication-item">
+                                    <div class="medication-name">
+                                        <h4>Ibuprofen 400mg</h4>
+                                        <span class="medication-type">Pain Reliever</span>
+                                    </div>
+                                    <div class="medication-details">
+                                        <p><strong>Dosage:</strong> Take 1 tablet by mouth every 6 hours as needed for pain</p>
+                                        <p><strong>Refills:</strong> 2 remaining</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prescription-actions">
+                            <button class="btn btn-outline download-btn">
+                                <i class="fas fa-download"></i>
+                                <span>Download PDF</span>
+                            </button>
+                            <button class="btn btn-primary refill-btn">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>Request Refill</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="referral-card">
+                        <div class="referral-header">
+                            <h3>Referral to Specialist</h3>
+                        </div>
+                        <div class="referral-info">
+                            <p><strong>Referred by:</strong> Dr. James Wilson</p>
+                            <p><strong>Date:</strong> April 15, 2025</p>
+                            <p><strong>Referred to:</strong> Dr. Sarah Johnson, Cardiologist</p>
+                            <p><strong>Reason:</strong> Follow-up evaluation for abnormal heart rhythm</p>
+                        </div>
+                        <div class="referral-actions">
+                            <button class="btn btn-outline view-details-btn">
+                                <i class="fas fa-file-alt"></i>
+                                <span>View Details</span>
+                            </button>
+                            <button class="btn btn-primary book-appointment-btn">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Book Appointment</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Video Call Modal -->
+    <div id="callModal" class="modal">
+        <div class="modal-content call-modal-content">
+            <div class="call-header">
+                <h3>Consultation with Dr. Sarah Johnson</h3>
+                <span class="call-duration">00:00</span>
+                <button class="btn btn-danger end-call-btn">
+                    <i class="fas fa-phone-slash"></i>
+                    <span>End Call</span>
+                </button>
+            </div>
+            
+            <div class="call-body">
+                <div class="doctor-video">
+                    <div class="video-placeholder">
+                        <img src="../images/doctor1.jpg" alt="Dr. Sarah Johnson">
+                        <div class="doctor-info">
+                            <h4>Dr. Sarah Johnson</h4>
+                            <p>Cardiologist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="user-video">
+                    <div class="video-placeholder">
+                        <img src="../images/user-avatar.jpg" alt="Your Video">
+                        <div class="user-info">
+                            <h4>You</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="call-controls">
+                <button class="control-btn">
+                    <i class="fas fa-microphone"></i>
+                    <span>Mute</span>
+                </button>
+                <button class="control-btn">
+                    <i class="fas fa-video"></i>
+                    <span>Video Off</span>
+                </button>
+                <button class="control-btn">
+                    <i class="fas fa-share-square"></i>
+                    <span>Share Screen</span>
+                </button>
+                <button class="control-btn">
+                    <i class="fas fa-comment-medical"></i>
+                    <span>Notes</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/teleconsultation.js"></script>
+</body>
+</html>

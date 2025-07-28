@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | MediMate</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">MediMate</div>
+                <div class="user-profile">
+                    <img src="../images/user-avatar.jpg" alt="User Avatar" class="avatar">
+                    <span class="user-name">John Doe</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="dashboard.html">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="assessment.html">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>Health Assessment</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mental-health.html">
+                            <i class="fas fa-brain"></i>
+                            <span>Mental Health</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wallet.html">
+                            <i class="fas fa-wallet"></i>
+                            <span>Blockchain Health</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="recommendations.html">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Recommendations</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teleconsultation.html">
+                            <i class="fas fa-video"></i>
+                            <span>Teleconsultation</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="emergency.html">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Emergency Protocol</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="appointments.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Appointments</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="settings.html" class="settings-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <button class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Dashboard</h1>
+                <div class="header-actions">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="wallet-balance">
+                        <span>350 HEAL</span>
+                        <i class="fas fa-coins"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-grid">
+                <!-- Welcome Card -->
+                <div class="card welcome-card">
+                    <div class="card-content">
+                        <h2>Welcome back, John!</h2>
+                        <p>How are you feeling today? Your mental health matters, and we're here to support you.</p>
+                        <button class="btn btn-primary">Start Daily Check-in</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="../images/welcome-illustration.svg" alt="Welcome Illustration">
+                    </div>
+                </div>
+                
+                <!-- Quick Actions -->
+                <div class="card quick-actions-card">
+                    <h3>Quick Actions</h3>
+                    <div class="quick-actions-grid">
+                        <a href="mental-health.html" class="quick-action">
+                            <div class="action-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <span>AI Assistant</span>
+                        </a>
+                        <a href="assessment.html" class="quick-action">
+                            <div class="action-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <span>Health Check</span>
+                        </a>
+                        <a href="appointments.html" class="quick-action">
+                            <div class="action-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <span>Book Appointment</span>
+                        </a>
+                        <a href="emergency.html" class="quick-action">
+                            <div class="action-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <span>Emergency</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Health Summary -->
+                <div class="card health-summary-card">
+                    <h3>Your Health Summary</h3>
+                    <div class="summary-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">7</div>
+                            <div class="stat-label">Days Streak</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">85%</div>
+                            <div class="stat-label">Mood Avg</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">6.5</div>
+                            <div class="stat-label">Sleep Hours</div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 65%;"></div>
+                    </div>
+                    <div class="progress-label">Weekly Progress: 65%</div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="card recent-activity-card">
+                    <h3>Recent Activity</h3>
+                    <ul class="activity-list">
+                        <li>
+                            <div class="activity-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p>Completed daily check-in</p>
+                                <span class="activity-time">Today, 9:30 AM</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="activity-icon">
+                                <i class="fas fa-comment-alt"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p>Chatted with AI Assistant</p>
+                                <span class="activity-time">Yesterday, 7:45 PM</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="activity-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p>Teleconsultation with Dr. Smith</p>
+                                <span class="activity-time">2 days ago</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="activity-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p>Earned 10 HEAL tokens</p>
+                                <span class="activity-time">3 days ago</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="view-all">View All Activity</a>
+                </div>
+                
+                <!-- Upcoming Appointments -->
+                <div class="card appointments-card">
+                    <h3>Upcoming Appointments</h3>
+                    <div class="appointment-item">
+                        <div class="appointment-details">
+                            <div class="appointment-date">
+                                <span class="day">15</span>
+                                <span class="month">MAY</span>
+                            </div>
+                            <div class="appointment-info">
+                                <h4>Dr. Sarah Johnson</h4>
+                                <p>Cardiologist</p>
+                                <span class="appointment-time">10:00 AM - 10:30 AM</span>
+                            </div>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn btn-outline">Details</button>
+                            <button class="btn btn-primary">Join Call</button>
+                        </div>
+                    </div>
+                    <div class="appointment-item">
+                        <div class="appointment-details">
+                            <div class="appointment-date">
+                                <span class="day">20</span>
+                                <span class="month">MAY</span>
+                            </div>
+                            <div class="appointment-info">
+                                <h4>Dr. Michael Chen</h4>
+                                <p>Neurologist</p>
+                                <span class="appointment-time">2:30 PM - 3:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn btn-outline">Details</button>
+                            <button class="btn btn-primary">Reschedule</button>
+                        </div>
+                    </div>
+                    <a href="appointments.html" class="view-all">View All Appointments</a>
+                </div>
+                
+                <!-- Recommended Resources -->
+                <div class="card resources-card">
+                    <h3>Recommended Resources</h3>
+                    <div class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h4>Mindfulness Meditation Guide</h4>
+                            <p>A comprehensive guide to mindfulness techniques for stress relief.</p>
+                            <a href="#" class="resource-link">View Resource</a>
+                        </div>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <div class="resource-content">
+                            <h4>Sleep Sounds Collection</h4>
+                            <p>Soothing sounds to help you relax and improve sleep quality.</p>
+                            <a href="#" class="resource-link">Listen Now</a>
+                        </div>
+                    </div>
+                    <a href="#" class="view-all">View All Resources</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

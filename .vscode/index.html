@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediMate - Your Mental Health Journey Starts Here</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="hero">
+        <nav>
+            <div class="logo">MediMate</div>
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline" id="loginBtn">Login</a>
+                <a href="#" class="btn btn-primary" id="signupBtn">Get Started</a>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1>Your Mental Health Journey Starts With MediMate</h1>
+            <p>A safe, supportive space with AI-powered tools to help you understand, manage, and improve your mental wellbeing.</p>
+            <div class="cta-buttons">
+                <a href="pages/dashboard.html" class="btn btn-primary">Get Started</a>
+                <a href="#how-it-works" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="how-it-works" class="how-it-works">
+        <h2>How Our Platform Works</h2>
+        <p>We combine advanced AI technology with evidence-based mental health practices to provide personalized support.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>AI-Powered Assessment</h3>
+                <p>Our AI analyzes your responses to understand your unique mental health needs.</p>
+                <p>Share your concerns through text or voice, and our AI will help identify patterns and provide personalized insights.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>24/7 Support</h3>
+                <p>Access mental health resources and support whenever you need them, day or night.</p>
+                <p>Our AI assistant is always available to provide guidance, coping strategies, and emergency resources.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>Privacy & Security</h3>
+                <p>Your data is encrypted and protected with the highest standards.</p>
+                <p>We prioritize your privacy and security, ensuring your personal information and conversations remain confidential.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="key-features">
+        <h2>Key Features</h2>
+        <p>Our platform offers a comprehensive suite of tools to support your mental health journey.</p>
+        
+        <div class="features-list">
+            <div class="feature-item">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h3>AI Mental Health Assistant</h3>
+                    <p>Chat with our AI to discuss your concerns, get coping strategies, and receive personalized guidance.</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <i class="fas fa-chart-line"></i>
+                <div>
+                    <h3>Health Tracking</h3>
+                    <p>Monitor your mental health progress over time with easy-to-understand visualizations and insights.</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <i class="fas fa-user-md"></i>
+                <div>
+                    <h3>Professional Support</h3>
+                    <p>Connect with licensed mental health professionals for virtual consultations when needed.</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <h3>Emergency Resources</h3>
+                    <p>Quick access to emergency contacts, crisis hotlines, and nearby mental health facilities.</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <i class="fas fa-pills"></i>
+                <div>
+                    <h3>Medication Information</h3>
+                    <p>Research medications, understand side effects, and check for potential interactions.</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <i class="fas fa-calendar-alt"></i>
+                <div>
+                    <h3>Appointment Scheduling</h3>
+                    <p>Easily book appointments with mental health professionals and receive reminders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">MediMate</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-disclaimer">
+                <p>© 2025 MediMate. All rights reserved.</p>
+                <p>This platform is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login to your account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" id="rememberMe"> Remember me
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <div class="modal-footer">
+                <p>Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+                <a href="pages/dashboard.html" class="btn btn-outline">Continue as Guest</a>
+                <p class="guest-note">Some features will be limited in guest mode</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create an account</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" id="agreeTerms" required> I agree to the terms of service and privacy policy
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Continue</button>
+            </form>
+            <div class="modal-footer">
+                <p>Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+                <a href="pages/dashboard.html" class="btn btn-outline">Continue as Guest</a>
+                <p class="guest-note">Some features will be limited in guest mode</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
