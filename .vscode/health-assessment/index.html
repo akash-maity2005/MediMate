@@ -312,7 +312,102 @@
             </div>
         </main>
     </div>
+    <div class="health-assessment-container">
+  <div class="header">
+    <h2>Health Assessment</h2>
+    <div class="heal-points">
+      <span class="points">350</span>
+      <span class="label">HEAL</span>
+    </div>
+  </div>
+
+  <div class="assessment-form">
+    <div class="form-group">
+      <label for="concern-type">Concern Type</label>
+      <select id="concern-type" class="form-control">
+        <option value="">Select Concern Type</option>
+        <option value="mental">Mental Health</option>
+        <option value="physical">Physical Health</option>
+        <option value="nutrition">Nutrition</option>
+        <option value="sleep">Sleep</option>
+      </select>
+    </div>
+
+    <div class="form-group symptoms-group" style="display: none;">
+      <label for="symptoms">Symptoms</label>
+      <textarea id="symptoms" class="form-control" rows="3" placeholder="Describe your symptoms..."></textarea>
+    </div>
+
+    <div class="assessment-results" style="display: none;">
+      <h3>Assessment Results</h3>
+      <div class="results-content">
+        <p>Your assessment will appear here after submission.</p>
+      </div>
+    </div>
+
+    <button id="assess-btn" class="btn-primary" disabled>Begin Assessment</button>
+    <button id="teleconsult-btn" class="btn-secondary" style="display: none;">Request Teleconsultation</button>
+  </div>
+</div>
 
     <script src="js/script.js"></script>
 </body>
 </html>
+<div class="blockchain-health-container">
+  <div class="assessment-header">
+    <div class="heal-points">
+      <span class="points">350</span>
+      <span class="label">HEAL</span>
+    </div>
+    <h2>Health Assessment</h2>
+  </div>
+
+  <div class="assessment-stepper">
+    <div class="step active">1. Concern Type</div>
+    <div class="step">2. Symptoms</div>
+    <div class="step">3. Assessment</div>
+  </div>
+
+  <div class="concern-type-selection">
+    <h3>Concern Type</h3>
+    <p class="subtitle">Select the type of health concern you're experiencing</p>
+    
+    <div class="concern-cards">
+      <div class="concern-card physical" data-type="physical">
+        <div class="card-icon">🏥</div>
+        <h4>Physical</h4>
+        <p class="card-description">Select this if you're experiencing physical symptoms like pain, fever, cough, or any bodily discomfort.</p>
+      </div>
+      
+      <div class="concern-card psychological" data-type="psychological">
+        <div class="card-icon">🧠</div>
+        <h4>Psychological</h4>
+        <p class="card-description">Select this if you're experiencing mental health concerns like anxiety, depression, or stress.</p>
+      </div>
+      
+      <div class="concern-card nutrition" data-type="nutrition">
+        <div class="card-icon">🍎</div>
+        <h4>Nutrition</h4>
+        <p class="card-description">Select this for dietary concerns, eating habits, or nutrition-related questions.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="symptoms-form" style="display: none;">
+    <h3>Symptoms</h3>
+    <p class="subtitle">Describe your symptoms in detail</p>
+    
+    <div class="form-group">
+      <textarea id="symptoms-details" class="form-control" rows="5" placeholder="Describe your symptoms..."></textarea>
+    </div>
+    
+    <div class="form-actions">
+      <button class="btn-secondary back-btn">Back</button>
+      <button class="btn-primary continue-btn">Continue</button>
+    </div>
+  </div>
+
+  <div class="assessment-results" style="display: none;">
+    <!-- Will be populated by JavaScript -->
+  </div>
+</div>
