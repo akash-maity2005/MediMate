@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teleconsultation | MediMate</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">MediMate</div>
+                <div class="user-profile">
+                    <img src="assets/images/user-avatar.jpg" alt="User Avatar" class="avatar">
+                    <span class="user-name">John Doe</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+                    <li><a href="assessment.html"><i class="fas fa-clipboard-check"></i><span>Health Assessment</span></a></li>
+                    <li><a href="mental-health.html"><i class="fas fa-brain"></i><span>Mental Health</span></a></li>
+                    <li><a href="wallet.html"><i class="fas fa-wallet"></i><span>Blockchain Health</span></a></li>
+                    <li><a href="recommendations.html"><i class="fas fa-lightbulb"></i><span>Recommendations</span></a></li>
+                    <li class="active"><a href="teleconsultation.html"><i class="fas fa-video"></i><span>Teleconsultation</span></a></li>
+                    <li><a href="emergency.html"><i class="fas fa-exclamation-triangle"></i><span>Emergency Protocol</span></a></li>
+                    <li><a href="appointments.html"><i class="fas fa-calendar-alt"></i><span>Appointments</span></a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="settings.html"><i class="fas fa-cog"></i><span>Settings</span></a>
+                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i><span>Logout</span></button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Teleconsultation</h1>
+                <div class="header-actions">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="wallet-balance">
+                        <span>350 HEAL</span>
+                        <i class="fas fa-coins"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="teleconsultation-container">
+                <!-- Tabs -->
+                <div class="consultation-tabs">
+                    <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+                    <button class="tab-btn" data-tab="past">Past Consultations</button>
+                    <button class="tab-btn" data-tab="prescriptions">E-Prescriptions</button>
+                </div>
+                
+                <!-- Tab Contents -->
+                <div class="tab-content active" id="upcoming-tab">
+                    <!-- Upcoming consultations will be loaded here by JavaScript -->
+                </div>
+                
+                <div class="tab-content" id="past-tab">
+                    <!-- Past consultations will be loaded here by JavaScript -->
+                </div>
+                
+                <div class="tab-content" id="prescriptions-tab">
+                    <!-- Prescriptions will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </main>
+        
+        <!-- Video Call Modal -->
+        <div id="callModal" class="modal">
+            <div class="modal-content call-modal-content">
+                <div class="call-header">
+                    <h3>Consultation with Dr. Sarah Johnson</h3>
+                    <span class="call-duration">00:00</span>
+                    <button class="btn btn-danger end-call-btn">
+                        <i class="fas fa-phone-slash"></i>
+                        <span>End Call</span>
+                    </button>
+                </div>
+                
+                <div class="call-body">
+                    <div class="doctor-video">
+                        <div class="video-placeholder">
+                            <img src="assets/images/doctor1.jpg" alt="Dr. Sarah Johnson">
+                            <div class="doctor-info">
+                                <h4>Dr. Sarah Johnson</h4>
+                                <p>Cardiologist</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-video">
+                        <div class="video-placeholder">
+                            <img src="assets/images/user-avatar.jpg" alt="Your Video">
+                            <div class="user-info">
+                                <h4>You</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="call-controls">
+                    <button class="control-btn">
+                        <i class="fas fa-microphone"></i>
+                        <span>Mute</span>
+                    </button>
+                    <button class="control-btn">
+                        <i class="fas fa-video"></i>
+                        <span>Video Off</span>
+                    </button>
+                    <button class="control-btn">
+                        <i class="fas fa-share-square"></i>
+                        <span>Share Screen</span>
+                    </button>
+                    <button class="control-btn">
+                        <i class="fas fa-comment-medical"></i>
+                        <span>Notes</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/script.js"></script>
+    </div>
+</body>
+</html>

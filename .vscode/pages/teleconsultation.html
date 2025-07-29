@@ -4,390 +4,592 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teleconsultation | MediMate</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/teleconsultation.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5d5fef',
+                        'primary-light': '#7b7df1',
+                        'primary-dark': '#4a4bc7',
+                        secondary: '#f5f5f7',
+                        accent: '#ff6b6b',
+                        'text-light': '#666',
+                        'text-lighter': '#999',
+                    },
+                    boxShadow: {
+                        custom: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        .video-placeholder {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-placeholder img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .doctor-info, .user-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
-<body>
-    <div class="app-container">
-        <!-- Sidebar Navigation (same as dashboard) -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">MediMate</div>
-                <div class="user-profile">
-                    <img src="../images/user-avatar.jpg" alt="User Avatar" class="avatar">
-                    <span class="user-name">John Doe</span>
-                </div>
+<body class="bg-secondary min-h-screen flex">
+    <!-- Sidebar Navigation -->
+    <aside class="w-64 bg-white shadow-md flex flex-col">
+        <div class="p-4 border-b">
+            <div class="text-2xl font-bold text-primary">MediMate</div>
+            <div class="flex items-center mt-4">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                <span class="font-medium">John Doe</span>
             </div>
-            
-            <nav class="sidebar-nav">
-                <ul>
-                    <li>
-                        <a href="dashboard.html">
-                            <i class="fas fa-home"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="assessment.html">
-                            <i class="fas fa-clipboard-check"></i>
-                            <span>Health Assessment</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mental-health.html">
-                            <i class="fas fa-brain"></i>
-                            <span>Mental Health</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="wallet.html">
-                            <i class="fas fa-wallet"></i>
-                            <span>Blockchain Health</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="recommendations.html">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Recommendations</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="teleconsultation.html">
-                            <i class="fas fa-video"></i>
-                            <span>Teleconsultation</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="emergency.html">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span>Emergency Protocol</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="appointments.html">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Appointments</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <div class="sidebar-footer">
-                <a href="settings.html" class="settings-link">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-                <button class="logout-btn">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </button>
-            </div>
-        </aside>
+        </div>
         
-        <!-- Main Content -->
-        <main class="main-content">
-            <header class="content-header">
-                <h1>Teleconsultation</h1>
-                <div class="header-actions">
-                    <div class="notification-bell">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-count">3</span>
-                    </div>
-                    <div class="wallet-balance">
-                        <span>350 HEAL</span>
-                        <i class="fas fa-coins"></i>
-                    </div>
+        <nav class="flex-1 p-4">
+            <ul class="space-y-2">
+                <li>
+                    <a href="dashboard.html" class="flex items-center p-2 text-gray-600 hover:text-primary hover:bg-primary/10 rounded-lg">
+                        <i class="fas fa-home mr-3"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="assessment.html" class="flex items-center p-2 text-gray-600 hover:text-primary hover:bg-primary/10 rounded-lg">
+                        <i class="fas fa-clipboard-check mr-3"></i>
+                        <span>Health Assessment</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mental-health.html" class="flex items-center p-2 text-gray-600 hover:text-primary hover:bg-primary/10 rounded-lg">
+                        <i class="fas fa-brain mr-3"></i>
+                        <span>Mental Health</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="wallet.html" class="flex items-center p-2 text-gray-600 hover:text-primary hover:bg-primary/10 rounded-lg">
+                        <i class="fas fa-wallet mr-3"></i>
+                        <span>Blockchain Health</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="recommendations.html" class="flex items-center p-2 text-gray-600 hover:text-primary hover:bg-primary/10 rounded-lg">
+                        <i class="fas fa-lightbulb mr-3"></i>
+                        <span>Recommendations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="teleconsultation.html" class="flex items-center p-2 text-primary bg-primary/10 rounded-lg">
+                        <i class="fas fa-video mr-3"></i>
+                        <span>Teleconsultation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="emergency.html" class="flex items-center p-2 text-gray-600 hover:text-primary hover:bg-primary/10 rounded-lg">
+                        <i class="fas fa-exclamation-triangle mr-3"></i>
+                        <span>Emergency Protocol</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="appointments.html" class="flex items-center p-2 text-gray-600 hover:text-primary hover:bg-primary/10 rounded-lg">
+                        <i class="fas fa-calendar-alt mr-3"></i>
+                        <span>Appointments</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="p-4 border-t">
+            <a href="settings.html" class="flex items-center p-2 text-gray-600 hover:text-primary hover:bg-primary/10 rounded-lg">
+                <i class="fas fa-cog mr-3"></i>
+                <span>Settings</span>
+            </a>
+            <button class="flex items-center w-full p-2 text-gray-600 hover:text-primary hover:bg-primary/10 rounded-lg">
+                <i class="fas fa-sign-out-alt mr-3"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-y-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">Teleconsultation</h1>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <i class="fas fa-bell text-gray-500 text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
                 </div>
-            </header>
+                <div class="flex items-center bg-white px-3 py-1 rounded-full shadow-sm">
+                    <span class="text-amber-500 font-medium mr-2">350 HEAL</span>
+                    <i class="fas fa-coins text-amber-400"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-custom p-6">
+            <!-- Tabs -->
+            <div class="border-b border-gray-200">
+                <nav class="flex space-x-8">
+                    <button class="tab-btn py-4 px-1 border-b-2 font-medium text-sm border-primary text-primary" data-tab="upcoming">
+                        Upcoming
+                    </button>
+                    <button class="tab-btn py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="past">
+                        Past Consultations
+                    </button>
+                    <button class="tab-btn py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="prescriptions">
+                        E-Prescriptions
+                    </button>
+                </nav>
+            </div>
             
-            <div class="teleconsultation-container">
-                <div class="consultation-tabs">
-                    <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
-                    <button class="tab-btn" data-tab="past">Past Consultations</button>
-                    <button class="tab-btn" data-tab="prescriptions">E-Prescriptions</button>
-                </div>
-                
-                <div class="tab-content active" id="upcoming-tab">
-                    <div class="consultation-card">
-                        <div class="consultation-header">
-                            <div class="doctor-info">
-                                <img src="../images/doctor1.jpg" alt="Dr. Sarah Johnson" class="doctor-avatar">
+            <!-- Tab Contents -->
+            <div class="mt-6">
+                <!-- Upcoming Tab -->
+                <div id="upcoming-tab" class="tab-content">
+                    <!-- Consultation Card 1 -->
+                    <div class="border border-gray-200 rounded-lg p-5 mb-4 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Sarah Johnson" class="w-16 h-16 rounded-full mr-4">
                                 <div>
-                                    <h3>Dr. Sarah Johnson</h3>
-                                    <p>Cardiologist</p>
-                                    <div class="consultation-time">
-                                        <i class="fas fa-calendar-alt"></i>
-                                        <span>Tomorrow, May 15, 2025</span>
+                                    <h3 class="text-lg font-bold">Dr. Sarah Johnson</h3>
+                                    <p class="text-gray-500">Cardiologist</p>
+                                    <div class="flex items-center mt-2 text-gray-600">
+                                        <i class="fas fa-calendar-alt mr-2 text-sm"></i>
+                                        <span class="text-sm">Tomorrow, May 15, 2025</span>
                                     </div>
-                                    <div class="consultation-time">
-                                        <i class="fas fa-clock"></i>
-                                        <span>10:00 AM - 10:30 AM (30 mins)</span>
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-clock mr-2 text-sm"></i>
+                                        <span class="text-sm">10:00 AM - 10:30 AM (30 mins)</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="consultation-status upcoming">
-                                <span>Upcoming</span>
-                            </div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                Upcoming
+                            </span>
                         </div>
-                        <div class="consultation-actions">
-                            <button class="btn btn-outline reschedule-btn">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Reschedule</span>
+                        <div class="flex justify-end space-x-3">
+                            <button class="reschedule-btn flex items-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                Reschedule
                             </button>
-                            <button class="btn btn-primary join-btn">
-                                <i class="fas fa-video"></i>
-                                <span>Join Call</span>
+                            <button class="join-btn flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-primary hover:bg-primary-dark">
+                                <i class="fas fa-video mr-2"></i>
+                                Join Call
                             </button>
                         </div>
                     </div>
                     
-                    <div class="consultation-card">
-                        <div class="consultation-header">
-                            <div class="doctor-info">
-                                <img src="../images/doctor2.jpg" alt="Dr. Michael Chen" class="doctor-avatar">
+                    <!-- Consultation Card 2 -->
+                    <div class="border border-gray-200 rounded-lg p-5 mb-4 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Dr. Michael Chen" class="w-16 h-16 rounded-full mr-4">
                                 <div>
-                                    <h3>Dr. Michael Chen</h3>
-                                    <p>Neurologist</p>
-                                    <div class="consultation-time">
-                                        <i class="fas fa-calendar-alt"></i>
-                                        <span>May 20, 2025</span>
+                                    <h3 class="text-lg font-bold">Dr. Michael Chen</h3>
+                                    <p class="text-gray-500">Neurologist</p>
+                                    <div class="flex items-center mt-2 text-gray-600">
+                                        <i class="fas fa-calendar-alt mr-2 text-sm"></i>
+                                        <span class="text-sm">May 20, 2025</span>
                                     </div>
-                                    <div class="consultation-time">
-                                        <i class="fas fa-clock"></i>
-                                        <span>2:30 PM - 3:00 PM (30 mins)</span>
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-clock mr-2 text-sm"></i>
+                                        <span class="text-sm">2:30 PM - 3:00 PM (30 mins)</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="consultation-status upcoming">
-                                <span>Upcoming</span>
-                            </div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                Upcoming
+                            </span>
                         </div>
-                        <div class="consultation-actions">
-                            <button class="btn btn-outline reschedule-btn">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Reschedule</span>
+                        <div class="flex justify-end space-x-3">
+                            <button class="reschedule-btn flex items-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                Reschedule
                             </button>
-                            <button class="btn btn-primary join-btn">
-                                <i class="fas fa-video"></i>
-                                <span>Join Call</span>
+                            <button class="join-btn flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-primary hover:bg-primary-dark">
+                                <i class="fas fa-video mr-2"></i>
+                                Join Call
                             </button>
                         </div>
                     </div>
                     
-                    <button class="btn btn-primary new-consultation-btn">
-                        <i class="fas fa-plus"></i>
-                        <span>Book New Consultation</span>
+                    <button class="new-consultation-btn w-full flex justify-center items-center px-4 py-3 border border-dashed border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 mt-4">
+                        <i class="fas fa-plus mr-2"></i>
+                        Book New Consultation
                     </button>
                 </div>
                 
-                <div class="tab-content" id="past-tab">
-                    <div class="consultation-card">
-                        <div class="consultation-header">
-                            <div class="doctor-info">
-                                <img src="../images/doctor3.jpg" alt="Dr. Emily Rodriguez" class="doctor-avatar">
+                <!-- Past Consultations Tab -->
+                <div id="past-tab" class="tab-content hidden">
+                    <!-- Past Consultation 1 -->
+                    <div class="border border-gray-200 rounded-lg p-5 mb-4 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex">
+                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Dr. Emily Rodriguez" class="w-16 h-16 rounded-full mr-4">
                                 <div>
-                                    <h3>Dr. Emily Rodriguez</h3>
-                                    <p>General Practitioner</p>
-                                    <div class="consultation-time">
-                                        <i class="fas fa-calendar-alt"></i>
-                                        <span>April 28, 2025</span>
+                                    <h3 class="text-lg font-bold">Dr. Emily Rodriguez</h3>
+                                    <p class="text-gray-500">General Practitioner</p>
+                                    <div class="flex items-center mt-2 text-gray-600">
+                                        <i class="fas fa-calendar-alt mr-2 text-sm"></i>
+                                        <span class="text-sm">April 28, 2025</span>
                                     </div>
-                                    <div class="consultation-time">
-                                        <i class="fas fa-clock"></i>
-                                        <span>11:15 AM - 11:45 AM (30 mins)</span>
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-clock mr-2 text-sm"></i>
+                                        <span class="text-sm">11:15 AM - 11:45 AM (30 mins)</span>
                                     </div>
-                                    <div class="consultation-method">
-                                        <i class="fas fa-phone-alt"></i>
-                                        <span>Audio Call</span>
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-phone-alt mr-2 text-sm"></i>
+                                        <span class="text-sm">Audio Call</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="consultation-status completed">
-                                <span>Completed</span>
-                            </div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                Completed
+                            </span>
                         </div>
-                        <div class="consultation-actions">
-                            <button class="btn btn-outline view-summary-btn">
-                                <i class="fas fa-file-alt"></i>
-                                <span>View Summary</span>
+                        <div class="flex justify-end space-x-3">
+                            <button class="view-summary-btn flex items-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <i class="fas fa-file-alt mr-2"></i>
+                                View Summary
                             </button>
-                            <button class="btn btn-primary followup-btn">
-                                <i class="fas fa-calendar-plus"></i>
-                                <span>Book Follow-up</span>
+                            <button class="followup-btn flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-primary hover:bg-primary-dark">
+                                <i class="fas fa-calendar-plus mr-2"></i>
+                                Book Follow-up
                             </button>
                         </div>
                     </div>
                     
-                    <div class="consultation-card">
-                        <div class="consultation-header">
-                            <div class="doctor-info">
-                                <img src="../images/doctor4.jpg" alt="Dr. James Wilson" class="doctor-avatar">
+                    <!-- Past Consultation 2 -->
+                    <div class="border border-gray-200 rounded-lg p-5 mb-4 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Dr. James Wilson" class="w-16 h-16 rounded-full mr-4">
                                 <div>
-                                    <h3>Dr. James Wilson</h3>
-                                    <p>Pulmonologist</p>
-                                    <div class="consultation-time">
-                                        <i class="fas fa-calendar-alt"></i>
-                                        <span>April 15, 2025</span>
+                                    <h3 class="text-lg font-bold">Dr. James Wilson</h3>
+                                    <p class="text-gray-500">Pulmonologist</p>
+                                    <div class="flex items-center mt-2 text-gray-600">
+                                        <i class="fas fa-calendar-alt mr-2 text-sm"></i>
+                                        <span class="text-sm">April 15, 2025</span>
                                     </div>
-                                    <div class="consultation-time">
-                                        <i class="fas fa-clock"></i>
-                                        <span>3:45 PM - 4:15 PM (30 mins)</span>
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-clock mr-2 text-sm"></i>
+                                        <span class="text-sm">3:45 PM - 4:15 PM (30 mins)</span>
                                     </div>
-                                    <div class="consultation-method">
-                                        <i class="fas fa-video"></i>
-                                        <span>Video Call</span>
+                                    <div class="flex items-center text-gray-600">
+                                        <i class="fas fa-video mr-2 text-sm"></i>
+                                        <span class="text-sm">Video Call</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="consultation-status completed">
-                                <span>Completed</span>
-                            </div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                Completed
+                            </span>
                         </div>
-                        <div class="consultation-actions">
-                            <button class="btn btn-outline view-summary-btn">
-                                <i class="fas fa-file-alt"></i>
-                                <span>View Summary</span>
+                        <div class="flex justify-end space-x-3">
+                            <button class="view-summary-btn flex items-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <i class="fas fa-file-alt mr-2"></i>
+                                View Summary
                             </button>
-                            <button class="btn btn-primary followup-btn">
-                                <i class="fas fa-calendar-plus"></i>
-                                <span>Book Follow-up</span>
+                            <button class="followup-btn flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-primary hover:bg-primary-dark">
+                                <i class="fas fa-calendar-plus mr-2"></i>
+                                Book Follow-up
                             </button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="tab-content" id="prescriptions-tab">
-                    <div class="prescription-card">
-                        <div class="prescription-header">
-                            <h3>Prescription #12345</h3>
-                            <div class="prescription-status active">
-                                <span>Active</span>
-                            </div>
+                <!-- Prescriptions Tab -->
+                <div id="prescriptions-tab" class="tab-content hidden">
+                    <!-- Prescription Card -->
+                    <div class="border border-gray-200 rounded-lg p-5 mb-4 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-bold">Prescription #12345</h3>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                Active
+                            </span>
                         </div>
-                        <div class="prescription-info">
-                            <div class="prescription-meta">
-                                <p><strong>Prescribed by:</strong> Dr. Emily Rodriguez</p>
-                                <p><strong>Date:</strong> April 28, 2025</p>
+                        
+                        <div class="mb-4">
+                            <p class="text-gray-600"><strong class="text-gray-800">Prescribed by:</strong> Dr. Emily Rodriguez</p>
+                            <p class="text-gray-600"><strong class="text-gray-800">Date:</strong> April 28, 2025</p>
+                        </div>
+                        
+                        <div class="space-y-4 mb-4">
+                            <!-- Medication 1 -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-bold">Amoxicillin 500mg</h4>
+                                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Antibiotic</span>
+                                </div>
+                                <p class="text-sm text-gray-600"><strong>Dosage:</strong> Take 1 capsule by mouth 3 times daily for 10 days</p>
+                                <p class="text-sm text-gray-600"><strong>Refills:</strong> 0 remaining</p>
                             </div>
                             
-                            <div class="medication-list">
-                                <div class="medication-item">
-                                    <div class="medication-name">
-                                        <h4>Amoxicillin 500mg</h4>
-                                        <span class="medication-type">Antibiotic</span>
-                                    </div>
-                                    <div class="medication-details">
-                                        <p><strong>Dosage:</strong> Take 1 capsule by mouth 3 times daily for 10 days</p>
-                                        <p><strong>Refills:</strong> 0 remaining</p>
-                                    </div>
+                            <!-- Medication 2 -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="font-bold">Ibuprofen 400mg</h4>
+                                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Pain Reliever</span>
                                 </div>
-                                
-                                <div class="medication-item">
-                                    <div class="medication-name">
-                                        <h4>Ibuprofen 400mg</h4>
-                                        <span class="medication-type">Pain Reliever</span>
-                                    </div>
-                                    <div class="medication-details">
-                                        <p><strong>Dosage:</strong> Take 1 tablet by mouth every 6 hours as needed for pain</p>
-                                        <p><strong>Refills:</strong> 2 remaining</p>
-                                    </div>
-                                </div>
+                                <p class="text-sm text-gray-600"><strong>Dosage:</strong> Take 1 tablet by mouth every 6 hours as needed for pain</p>
+                                <p class="text-sm text-gray-600"><strong>Refills:</strong> 2 remaining</p>
                             </div>
                         </div>
-                        <div class="prescription-actions">
-                            <button class="btn btn-outline download-btn">
-                                <i class="fas fa-download"></i>
-                                <span>Download PDF</span>
+                        
+                        <div class="flex justify-end space-x-3">
+                            <button class="download-btn flex items-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <i class="fas fa-download mr-2"></i>
+                                Download PDF
                             </button>
-                            <button class="btn btn-primary refill-btn">
-                                <i class="fas fa-sync-alt"></i>
-                                <span>Request Refill</span>
+                            <button class="refill-btn flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-primary hover:bg-primary-dark">
+                                <i class="fas fa-sync-alt mr-2"></i>
+                                Request Refill
                             </button>
                         </div>
                     </div>
                     
-                    <div class="referral-card">
-                        <div class="referral-header">
-                            <h3>Referral to Specialist</h3>
+                    <!-- Referral Card -->
+                    <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+                        <h3 class="text-lg font-bold mb-4">Referral to Specialist</h3>
+                        
+                        <div class="mb-4 space-y-2">
+                            <p class="text-gray-600"><strong class="text-gray-800">Referred by:</strong> Dr. James Wilson</p>
+                            <p class="text-gray-600"><strong class="text-gray-800">Date:</strong> April 15, 2025</p>
+                            <p class="text-gray-600"><strong class="text-gray-800">Referred to:</strong> Dr. Sarah Johnson, Cardiologist</p>
+                            <p class="text-gray-600"><strong class="text-gray-800">Reason:</strong> Follow-up evaluation for abnormal heart rhythm</p>
                         </div>
-                        <div class="referral-info">
-                            <p><strong>Referred by:</strong> Dr. James Wilson</p>
-                            <p><strong>Date:</strong> April 15, 2025</p>
-                            <p><strong>Referred to:</strong> Dr. Sarah Johnson, Cardiologist</p>
-                            <p><strong>Reason:</strong> Follow-up evaluation for abnormal heart rhythm</p>
-                        </div>
-                        <div class="referral-actions">
-                            <button class="btn btn-outline view-details-btn">
-                                <i class="fas fa-file-alt"></i>
-                                <span>View Details</span>
+                        
+                        <div class="flex justify-end space-x-3">
+                            <button class="view-details-btn flex items-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <i class="fas fa-file-alt mr-2"></i>
+                                View Details
                             </button>
-                            <button class="btn btn-primary book-appointment-btn">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Book Appointment</span>
+                            <button class="book-appointment-btn flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-primary hover:bg-primary-dark">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                Book Appointment
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
-
+        </div>
+    </main>
+    
     <!-- Video Call Modal -->
-    <div id="callModal" class="modal">
-        <div class="modal-content call-modal-content">
-            <div class="call-header">
-                <h3>Consultation with Dr. Sarah Johnson</h3>
-                <span class="call-duration">00:00</span>
-                <button class="btn btn-danger end-call-btn">
-                    <i class="fas fa-phone-slash"></i>
-                    <span>End Call</span>
-                </button>
+    <div id="callModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
             </div>
             
-            <div class="call-body">
-                <div class="doctor-video">
-                    <div class="video-placeholder">
-                        <img src="../images/doctor1.jpg" alt="Dr. Sarah Johnson">
-                        <div class="doctor-info">
-                            <h4>Dr. Sarah Johnson</h4>
-                            <p>Cardiologist</p>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+                <div class="bg-white px-4 py-3 border-b border-gray-200 flex justify-between items-center">
+                    <h3 class="text-lg font-medium text-gray-900">Consultation with Dr. Sarah Johnson</h3>
+                    <div class="flex items-center">
+                        <span id="callDuration" class="text-gray-600 mr-4">00:00</span>
+                        <button id="endCallBtn" class="flex items-center px-3 py-1 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700">
+                            <i class="fas fa-phone-slash mr-2"></i>
+                            End Call
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 px-4 py-5 sm:p-6">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <!-- Doctor Video -->
+                        <div class="flex-1">
+                            <div class="video-placeholder bg-gray-800 rounded-lg">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Sarah Johnson">
+                                <div class="doctor-info text-white p-2">
+                                    <h4 class="font-bold">Dr. Sarah Johnson</h4>
+                                    <p class="text-sm">Cardiologist</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- User Video -->
+                        <div class="w-full md:w-1/3">
+                            <div class="video-placeholder bg-gray-800 rounded-lg">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Your Video">
+                                <div class="user-info text-white p-2">
+                                    <h4 class="font-bold">You</h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="user-video">
-                    <div class="video-placeholder">
-                        <img src="../images/user-avatar.jpg" alt="Your Video">
-                        <div class="user-info">
-                            <h4>You</h4>
-                        </div>
-                    </div>
+                <div class="bg-gray-50 px-4 py-3 flex justify-center space-x-8">
+                    <button class="control-btn flex flex-col items-center text-gray-700">
+                        <i class="fas fa-microphone text-xl mb-1"></i>
+                        <span class="text-xs">Mute</span>
+                    </button>
+                    <button class="control-btn flex flex-col items-center text-gray-700">
+                        <i class="fas fa-video text-xl mb-1"></i>
+                        <span class="text-xs">Video Off</span>
+                    </button>
+                    <button class="control-btn flex flex-col items-center text-gray-700">
+                        <i class="fas fa-share-square text-xl mb-1"></i>
+                        <span class="text-xs">Share Screen</span>
+                    </button>
+                    <button class="control-btn flex flex-col items-center text-gray-700">
+                        <i class="fas fa-comment-medical text-xl mb-1"></i>
+                        <span class="text-xs">Notes</span>
+                    </button>
                 </div>
-            </div>
-            
-            <div class="call-controls">
-                <button class="control-btn">
-                    <i class="fas fa-microphone"></i>
-                    <span>Mute</span>
-                </button>
-                <button class="control-btn">
-                    <i class="fas fa-video"></i>
-                    <span>Video Off</span>
-                </button>
-                <button class="control-btn">
-                    <i class="fas fa-share-square"></i>
-                    <span>Share Screen</span>
-                </button>
-                <button class="control-btn">
-                    <i class="fas fa-comment-medical"></i>
-                    <span>Notes</span>
-                </button>
             </div>
         </div>
     </div>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/teleconsultation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(btn => {
+                        btn.classList.remove('border-primary', 'text-primary');
+                        btn.classList.add('border-transparent', 'text-gray-500');
+                    });
+                    tabContents.forEach(content => content.classList.add('hidden'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.remove('border-transparent', 'text-gray-500');
+                    this.classList.add('border-primary', 'text-primary');
+                    document.getElementById(`${tabId}-tab`).classList.remove('hidden');
+                });
+            });
+            
+            // Join call button functionality
+            const joinBtns = document.querySelectorAll('.join-btn');
+            const callModal = document.getElementById('callModal');
+            const endCallBtn = document.getElementById('endCallBtn');
+            
+            joinBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    callModal.classList.remove('hidden');
+                    startCallTimer();
+                });
+            });
+            
+            if (endCallBtn) {
+                endCallBtn.addEventListener('click', function() {
+                    callModal.classList.add('hidden');
+                    stopCallTimer();
+                });
+            }
+            
+            // Other button functionalities
+            const buttons = [
+                '.reschedule-btn',
+                '.followup-btn',
+                '.view-summary-btn',
+                '.download-btn',
+                '.refill-btn',
+                '.view-details-btn',
+                '.book-appointment-btn',
+                '.new-consultation-btn'
+            ];
+            
+            buttons.forEach(selector => {
+                document.querySelectorAll(selector).forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        if (!this.getAttribute('href')) {
+                            e.preventDefault();
+                            const action = this.querySelector('span').textContent;
+                            alert(`${action} feature will be implemented soon!`);
+                        }
+                    });
+                });
+            });
+            
+            // Call timer functionality
+            let callTimer;
+            let callSeconds = 0;
+            const callDuration = document.getElementById('callDuration');
+            
+            function startCallTimer() {
+                callSeconds = 0;
+                updateCallTimer();
+                callTimer = setInterval(updateCallTimer, 1000);
+            }
+            
+            function stopCallTimer() {
+                clearInterval(callTimer);
+            }
+            
+            function updateCallTimer() {
+                callSeconds++;
+                const minutes = Math.floor(callSeconds / 60);
+                const seconds = callSeconds % 60;
+                callDuration.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+            
+            // Control buttons functionality
+            const controlBtns = document.querySelectorAll('.control-btn');
+            
+            controlBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    const text = this.querySelector('span');
+                    const action = text.textContent;
+                    
+                    // Toggle between on/off states
+                    if (action.includes('Off')) {
+                        text.textContent = action.replace('Off', 'On');
+                        if (icon.classList.contains('fa-video')) {
+                            icon.classList.remove('fa-video');
+                            icon.classList.add('fa-video-slash');
+                        }
+                    } else if (action.includes('On')) {
+                        text.textContent = action.replace('On', 'Off');
+                        if (icon.classList.contains('fa-video-slash')) {
+                            icon.classList.remove('fa-video-slash');
+                            icon.classList.add('fa-video');
+                        }
+                    } else if (action === 'Mute') {
+                        text.textContent = 'Unmute';
+                        icon.classList.remove('fa-microphone');
+                        icon.classList.add('fa-microphone-slash');
+                    } else if (action === 'Unmute') {
+                        text.textContent = 'Mute';
+                        icon.classList.remove('fa-microphone-slash');
+                        icon.classList.add('fa-microphone');
+                    }
+                    
+                    // For demo purposes, show a message
+                    if (action === 'Notes') {
+                        alert('Consultation notes feature will be implemented soon!');
+                    } else if (action === 'Share Screen') {
+                        alert('Screen sharing feature will be implemented soon!');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
